@@ -1,13 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dr0lev4nd40ef"]
+[gd_scene load_steps=15 format=3 uid="uid://dr0lev4nd40ef"]
 
 [ext_resource type="Texture2D" uid="uid://dlfatcern2luq" path="res://textures/water_normalmap.png" id="1_gggee"]
 [ext_resource type="Texture2D" uid="uid://2wp7f0bqcker" path="res://textures/beach_skybox.png" id="2_mn3xr"]
 [ext_resource type="Texture2D" uid="uid://b7oyuxthbo5hs" path="res://textures/sand_roughness.jpeg" id="4_amepf"]
 [ext_resource type="Texture2D" uid="uid://ccd4r5lec5aoi" path="res://textures/sand_normalmap.png" id="4_sdtkb"]
 [ext_resource type="Texture2D" uid="uid://v21frk7cp4nk" path="res://textures/sand.jpeg" id="5_kgy6m"]
-[ext_resource type="PackedScene" uid="uid://mpyyq1awemnq" path="res://models/bench.fbx" id="6_dhshr"]
-[ext_resource type="PackedScene" uid="uid://v21frk7cp4nk" path="res://models/shade.fbx" id="7_m2dn8"]
-[ext_resource type="PackedScene" uid="uid://ch6q7v52ojtix" path="res://models/bird.blend" id="8_wpud4"]
+[ext_resource type="PackedScene" uid="uid://f3e6s8juyuwx" path="res://models/shade.glb" id="6_ebxtu"]
+[ext_resource type="PackedScene" uid="uid://cmi3rnya1n6db" path="res://models/bench.glb" id="7_5idna"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_681gk"]
 size = Vector2(500, 200)
@@ -58,11 +57,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 77)
 mesh = SubResource("SphereMesh_8dr8e")
 surface_material_override/0 = SubResource("StandardMaterial3D_hfmlf")
 
-[node name="bench" parent="." instance=ExtResource("6_dhshr")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -21.95, 0.45, 50.37)
+[node name="shade" parent="." instance=ExtResource("6_ebxtu")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -15.98, 0.51, 53.39)
 
-[node name="shade" parent="." instance=ExtResource("7_m2dn8")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -20.33, 0.55, 45.52)
-
-[node name="bird" parent="." instance=ExtResource("8_wpud4")]
-transform = Transform3D(0.347296, 5.65844e-16, 1.96962, 6.97574e-16, 2, -6.97574e-16, -1.96962, 8.08108e-16, 0.347296, 2.08165e-12, 2.88, 40.76)
+[node name="bench" parent="." instance=ExtResource("7_5idna")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -17.23, 0.71, 60.18)
