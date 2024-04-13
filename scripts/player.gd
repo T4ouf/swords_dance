@@ -71,7 +71,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed(action_attack):
 			if Input.is_action_pressed(action_low):
 				idling = false
-				# animation_player.play("attack_low")
+				animation_player.play("attack_low")
 			elif Input.is_action_pressed(action_mid):
 				idling = false
 				animation_player.play("attack_mid")
