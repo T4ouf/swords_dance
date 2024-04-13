@@ -15,8 +15,11 @@ signal round_win
 @onready var move_right_action = "move_right_p%d" % player_number
 @onready var move_up_action = "move_up_p%d" % player_number
 @onready var move_down_action = "move_down_p%d" % player_number
-@onready var action_attack_action = "action_attack_p%d" % player_number
-@onready var action_guard_action = "action_guard_p%d" % player_number
+@onready var action_attack = "action_attack_p%d" % player_number
+@onready var action_guard = "action_guard_p%d" % player_number
+@onready var action_low = "action_low_p%d" % player_number
+@onready var action_mid = "action_mid_p%d" % player_number
+@onready var action_high = "action_high_p%d" % player_number
 
 var opponent : CharacterBody2D
 var opponent_sword : CollisionPolygon2D
@@ -45,30 +48,46 @@ func _physics_process(delta):
 
 	# TODO: correctly handle input
 	# see https://docs.godotengine.org/en/stable/tutorials/inputs/controllers_gamepads_joysticks.html
-
-	var direction = 0
-	
-	if Input.is_action_pressed(move_left_action):
-		direction -= 1
+	if not animation_player.is_playing():
+		var direction = 0
 		
-	if Input.is_action_pressed(move_right_action):
-		direction += 1
-	
-	if direction:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		if Input.is_action_pressed(move_left_action):
+			direction -= 1
+			
+		if Input.is_action_pressed(move_right_action):
+			direction += 1
+		
+		if direction:
+			velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 
-	# process actions
-	if Input.is_action_pressed(action_attack_action):
-		velocity.x = 0
-		animation_player.play("attack_mid")
+		# process actions
+		if Input.is_action_pressed(action_attack):
+			if Input.is_action_pressed(action_low):
+				velocity.x = 0
+				# animation_player.play("attack_low")
+			elif Input.is_action_pressed(action_mid):
+				velocity.x = 0
+				animation_player.play("attack_mid")
+			elif Input.is_action_pressed(action_high):
+				velocity.x = 0
+				animation_player.play("attack_high")
+		elif Input.is_action_pressed(action_guard):
+			if Input.is_action_pressed(action_low):
+				velocity.x = 0
+				# animation_player.play("guard_low")
+			elif Input.is_action_pressed(action_mid):
+				velocity.x = 0
+				# animation_player.play("guard_mid")
+			elif Input.is_action_pressed(action_high):
+				velocity.x = 0
+				# animation_player.play("guard_high")
 
-	# elif Input.is_action_pressed("action_guard"):
-	# 	velocity.x = 0
+		# elif Input.is_action_pressed("action_guard"):
+		# 	velocity.x = 0
 		
 	
-	if speed > 0:
 		move_and_slide()
 	else:
 		var collision = move_and_collide(delta * velocity)
