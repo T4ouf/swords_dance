@@ -25,6 +25,8 @@ var opponent : CharacterBody2D
 var opponent_sword : CollisionPolygon2D
 var opponent_hitbox : CollisionShape2D
 
+var idling = true
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -41,6 +43,9 @@ func _ready():
 	
 	opponent_sword = opponent.get_node("SwordHitbox")
 	opponent_hitbox = opponent.get_node("PlayerHitbox")
+
+	animation_player.play("idle")
+
 	sword.set_deferred("disabled", true)
 
 func _physics_process(delta):
@@ -48,7 +53,7 @@ func _physics_process(delta):
 
 	# TODO: correctly handle input
 	# see https://docs.godotengine.org/en/stable/tutorials/inputs/controllers_gamepads_joysticks.html
-	if not animation_player.is_playing():
+	if idling:# not animation_player.is_playing():
 		var direction = 0
 		
 		if Input.is_action_pressed(move_left_action):
@@ -65,25 +70,27 @@ func _physics_process(delta):
 		# process actions
 		if Input.is_action_pressed(action_attack):
 			if Input.is_action_pressed(action_low):
-				velocity.x = 0
+				idling = false
 				# animation_player.play("attack_low")
 			elif Input.is_action_pressed(action_mid):
-				velocity.x = 0
+				idling = false
 				animation_player.play("attack_mid")
 			elif Input.is_action_pressed(action_high):
-				velocity.x = 0
+				idling = false
 				animation_player.play("attack_high")
 		elif Input.is_action_pressed(action_guard):
 			if Input.is_action_pressed(action_low):
-				velocity.x = 0
+				idling = false
 				# animation_player.play("guard_low")
 			elif Input.is_action_pressed(action_mid):
-				velocity.x = 0
+				idling = false
 				# animation_player.play("guard_mid")
 			elif Input.is_action_pressed(action_high):
-				velocity.x = 0
+				idling = false
 				# animation_player.play("guard_high")
 
+		if not idling:
+			velocity.x = 0
 		# elif Input.is_action_pressed("action_guard"):
 		# 	velocity.x = 0
 		
@@ -102,3 +109,6 @@ func _physics_process(delta):
 			elif collision.get_collider_shape() == opponent_hitbox: # hit the body
 				round_win.emit()
 
+func _on_animation_player_animation_finished(_anim_name):
+	animation_player.play("idle")
+	idling = true

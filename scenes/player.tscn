@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bva5wcioffj8k"]
+[gd_scene load_steps=21 format=3 uid="uid://bva5wcioffj8k"]
 
 [ext_resource type="Texture2D" uid="uid://cm0yophkc6jfx" path="res://art/attack_mid/attack_mid0.png" id="1_fugyn"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pa4lm"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://htqqe37y2yb0" path="res://art/attack_high/attack_high5.png" id="14_8ir5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kny7o"]
-size = Vector2(23.1712, 49)
+size = Vector2(23.1712, 50.5)
 
 [sub_resource type="Animation" id="Animation_ces44"]
 length = 0.001
@@ -80,6 +80,70 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kjraf"]
+resource_name = "attack_high"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerHitbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32, 12.5), Vector2(32, 12.5), Vector2(32, 12.5), Vector2(12, 15), Vector2(12, 15), Vector2(18, 13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerHitbox:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, -0.352556, -0.352556, -0.0698132]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_cnwo7"), ExtResource("10_0cdn8"), ExtResource("11_61uc6"), ExtResource("12_jdixf"), ExtResource("13_l0hou"), ExtResource("14_8ir5q")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SwordHitbox:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedVector2Array(-16, 5, -51, -3, -18, -36, 46, -35), PackedVector2Array(-16, 6, -50, -2, -48, -6, -15, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwordHitbox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_ifylt"]
@@ -147,9 +211,11 @@ tracks/4/keys = {
 "values": [true, false, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_kjraf"]
-resource_name = "attack_high"
-length = 0.6
+[sub_resource type="Animation" id="Animation_btnwj"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -157,65 +223,42 @@ tracks/0/path = NodePath("PlayerHitbox:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(32, 12.5), Vector2(32, 12.5), Vector2(32, 12.5), Vector2(12, 15), Vector2(12, 15), Vector2(18, 13)]
+"values": [Vector2(32, 12.25)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerHitbox:skew")
+tracks/1/path = NodePath("Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0, -0.352556, -0.352556, -0.0698132]
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_fugyn")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/path = NodePath("SwordHitbox:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_cnwo7"), ExtResource("10_0cdn8"), ExtResource("11_61uc6"), ExtResource("12_jdixf"), ExtResource("13_l0hou"), ExtResource("14_8ir5q")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SwordHitbox:polygon")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [PackedVector2Array(-16, 5, -51, -3, -18, -36, 46, -35), PackedVector2Array(-16, 6, -50, -2, -48, -6, -15, 2)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SwordHitbox:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o3drh"]
 _data = {
 "RESET": SubResource("Animation_ces44"),
 "attack_high": SubResource("Animation_kjraf"),
-"attack_mid": SubResource("Animation_ifylt")
+"attack_mid": SubResource("Animation_ifylt"),
+"idle": SubResource("Animation_btnwj")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -236,3 +279,5 @@ texture = ExtResource("1_fugyn")
 [node name="SwordHitbox" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-49, 7, -12, 10, 49, 36, -23, 27, -39, 23)
 disabled = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
