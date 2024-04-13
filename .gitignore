@@ -1,8 +1,11 @@
+# Mac bin files
+*.DS_Store
+
 # Godot 4+ specific ignores
 .godot/
 
 # Godot-specific ignores
-.import/
+*.import
 export.cfg
 export_presets.cfg
 
