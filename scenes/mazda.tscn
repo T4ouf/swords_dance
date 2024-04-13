@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ektmo40qhhby"]
+
+[ext_resource type="PackedScene" uid="uid://b04ek6xtoixtj" path="res://models/cars/mazda.glb" id="1_bpqsp"]
+[ext_resource type="AudioStream" uid="uid://dbbrxxlev0cnw" path="res://audio/car.mp3" id="2_omjlg"]
+
+[node name="mazda" instance=ExtResource("1_bpqsp")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1"]
+stream = ExtResource("2_omjlg")
+autoplay = true

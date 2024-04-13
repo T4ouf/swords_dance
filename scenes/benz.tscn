@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://blgel740ei1ya"]
+
+[ext_resource type="PackedScene" uid="uid://b2rt6802c1wdj" path="res://models/cars/benz.glb" id="1_5j21v"]
+[ext_resource type="AudioStream" uid="uid://d4agjb6cy7ur2" path="res://audio/jeep.mp3" id="2_1w5v3"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_5j21v")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1"]
+stream = ExtResource("2_1w5v3")
+autoplay = true
+stream_paused = true
