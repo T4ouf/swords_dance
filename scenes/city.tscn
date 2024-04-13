@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://df654rns12ixq"]
+
+[ext_resource type="PackedScene" uid="uid://mrn4kgvvcqf3" path="res://scenes/city_model.tscn" id="1_dask3"]
+[ext_resource type="Texture2D" uid="uid://b4gkn48ck55qb" path="res://textures/city_skybox.png" id="2_j3j17"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8464y"]
+panorama = ExtResource("2_j3j17")
+
+[sub_resource type="Sky" id="Sky_v2bik"]
+sky_material = SubResource("PanoramaSkyMaterial_8464y")
+
+[sub_resource type="Environment" id="Environment_x6op7"]
+background_mode = 2
+sky = SubResource("Sky_v2bik")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="city" parent="." instance=ExtResource("1_dask3")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 2, 0.68, -19.44)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.2, 2.08165e-12)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x6op7")
