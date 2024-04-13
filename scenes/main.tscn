@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://u2vb06snlvgx"]
+[gd_scene load_steps=2 format=3 uid="uid://u2vb06snlvgx"]
+
+[ext_resource type="PackedScene" uid="uid://dto7bkwlg2w7d" path="res://scenes/fight_main.tscn" id="1_jg33f"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="FightMain" parent="." instance=ExtResource("1_jg33f")]

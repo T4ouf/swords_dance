@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dto7bkwlg2w7d"]
+
+[ext_resource type="PackedScene" uid="uid://bva5wcioffj8k" path="res://scenes/player.tscn" id="1_7y0uo"]
+[ext_resource type="Script" path="res://scripts/fight_main.gd" id="1_wmawu"]
+[ext_resource type="PackedScene" uid="uid://cjceyi8mtv5or" path="res://scenes/platform.tscn" id="2_3d78j"]
+
+[node name="FightMain" type="Node2D"]
+script = ExtResource("1_wmawu")
+
+[node name="Player1" parent="." instance=ExtResource("1_7y0uo")]
+position = Vector2(648, 212)
+
+[node name="Player2" parent="." instance=ExtResource("1_7y0uo")]
+position = Vector2(315, 212)
+scale = Vector2(-1, 1)
+
+[node name="Platform" parent="." instance=ExtResource("2_3d78j")]
+position = Vector2(-86, 264)
+
+[connection signal="round_win" from="Player1" to="." method="_on_player_1_round_win"]
+[connection signal="round_win" from="Player2" to="." method="_on_player_2_round_win"]
