@@ -129,6 +129,12 @@ action_low_p2={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="characters"
+2d_physics/layer_3="swords"
+2d_physics/layer_4="ground"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
