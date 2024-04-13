@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://dr0lev4nd40ef"]
 
-[ext_resource type="Texture2D" uid="uid://dlfatcern2luq" path="res://textures/water_normalmap.png" id="1_gggee"]
-[ext_resource type="Texture2D" uid="uid://2wp7f0bqcker" path="res://textures/beach_skybox.png" id="2_mn3xr"]
-[ext_resource type="Texture2D" uid="uid://b7oyuxthbo5hs" path="res://textures/sand_roughness.jpeg" id="4_amepf"]
-[ext_resource type="Texture2D" uid="uid://ccd4r5lec5aoi" path="res://textures/sand_normalmap.png" id="4_sdtkb"]
-[ext_resource type="Texture2D" uid="uid://v21frk7cp4nk" path="res://textures/sand.jpeg" id="5_kgy6m"]
-[ext_resource type="PackedScene" uid="uid://f3e6s8juyuwx" path="res://models/shade.glb" id="6_ebxtu"]
-[ext_resource type="PackedScene" uid="uid://cmi3rnya1n6db" path="res://models/bench.glb" id="7_5idna"]
+[ext_resource type="Texture2D" uid="uid://dlfatcern2luq" path="res://textures/water_normalmap.png" id="1_tc15j"]
+[ext_resource type="Texture2D" uid="uid://2wp7f0bqcker" path="res://textures/beach_skybox.png" id="2_hr4bt"]
+[ext_resource type="Texture2D" uid="uid://v21frk7cp4nk" path="res://textures/sand.jpeg" id="3_d0cxt"]
+[ext_resource type="Texture2D" uid="uid://ccd4r5lec5aoi" path="res://textures/sand_normalmap.png" id="4_m8jtl"]
+[ext_resource type="Texture2D" uid="uid://b7oyuxthbo5hs" path="res://textures/sand_roughness.jpeg" id="5_mqyjt"]
+[ext_resource type="PackedScene" uid="uid://f3e6s8juyuwx" path="res://models/shade.glb" id="6_kd2k2"]
+[ext_resource type="PackedScene" uid="uid://cmi3rnya1n6db" path="res://models/bench.glb" id="7_u4e3d"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_681gk"]
 size = Vector2(500, 200)
@@ -16,10 +16,10 @@ transparency = 1
 albedo_color = Color(0, 0.403922, 0.960784, 0.862745)
 normal_enabled = true
 normal_scale = 2.36
-normal_texture = ExtResource("1_gggee")
+normal_texture = ExtResource("1_tc15j")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w2dpn"]
-panorama = ExtResource("2_mn3xr")
+panorama = ExtResource("2_hr4bt")
 
 [sub_resource type="Sky" id="Sky_08mge"]
 sky_material = SubResource("PanoramaSkyMaterial_w2dpn")
@@ -28,6 +28,8 @@ sky_material = SubResource("PanoramaSkyMaterial_w2dpn")
 background_mode = 2
 sky = SubResource("Sky_08mge")
 sky_rotation = Vector3(3.48787e-16, -3.86416, 3.48787e-16)
+ambient_light_source = 3
+reflected_light_source = 2
 
 [sub_resource type="SphereMesh" id="SphereMesh_8dr8e"]
 radius = 64.361
@@ -35,10 +37,13 @@ height = 0.496
 is_hemisphere = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfmlf"]
-albedo_texture = ExtResource("5_kgy6m")
-roughness_texture = ExtResource("4_amepf")
+albedo_texture = ExtResource("3_d0cxt")
+roughness = 0.05
+roughness_texture = ExtResource("5_mqyjt")
 normal_enabled = true
-normal_texture = ExtResource("4_sdtkb")
+normal_scale = -0.26
+normal_texture = ExtResource("4_m8jtl")
+texture_filter = 4
 
 [node name="Node3D" type="Node3D"]
 
@@ -57,8 +62,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 77)
 mesh = SubResource("SphereMesh_8dr8e")
 surface_material_override/0 = SubResource("StandardMaterial3D_hfmlf")
 
-[node name="shade" parent="." instance=ExtResource("6_ebxtu")]
+[node name="shade" parent="." instance=ExtResource("6_kd2k2")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -15.98, 0.51, 53.39)
 
-[node name="bench" parent="." instance=ExtResource("7_5idna")]
+[node name="bench" parent="." instance=ExtResource("7_u4e3d")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -17.23, 0.71, 60.18)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 961.353, 189.455, -1696.73)
