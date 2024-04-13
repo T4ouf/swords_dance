@@ -1,5 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://mrn4kgvvcqf3"]
+[gd_scene load_steps=18 format=3 uid="uid://mrn4kgvvcqf3"]
 
 [ext_resource type="PackedScene" uid="uid://lexlw22jaues" path="res://models/city.glb" id="1_xpt1s"]
+[ext_resource type="Texture2D" uid="uid://bwpdfigdlsvag" path="res://textures/road/Road_001_basecolor.jpg" id="2_1alau"]
+[ext_resource type="PackedScene" uid="uid://dsukl35vej8c0" path="res://scenes/billboard.tscn" id="2_wm3vm"]
+[ext_resource type="Texture2D" uid="uid://bqdjb6s7t2n47" path="res://models/shade_shade-7b335a8dfaf253532b58ca98e4801cca_Wood04_diffuse_xtm.jpg" id="3_0g83t"]
+[ext_resource type="Texture2D" uid="uid://copyv5uirnfl0" path="res://textures/road/Road_001_ambientOcclusion.jpg" id="3_bc7l6"]
+[ext_resource type="Texture2D" uid="uid://b12ip4r1gnb85" path="res://textures/road/Road_001_height.png" id="4_lulc2"]
+[ext_resource type="Texture2D" uid="uid://hk05detouxg1" path="res://textures/road/Road_001_normal.jpg" id="5_qd4fp"]
+[ext_resource type="Texture2D" uid="uid://iwo67un7rk75" path="res://textures/road/Road_001_roughness.jpg" id="6_x54i0"]
+[ext_resource type="PackedScene" uid="uid://ccpbvyyrgmwfd" path="res://scenes/lamp_1.tscn" id="9_0p1hq"]
+[ext_resource type="PackedScene" uid="uid://bta7inugp4ko1" path="res://scenes/lamp_2.tscn" id="10_rugkx"]
+[ext_resource type="PackedScene" uid="uid://dnlphxs2p6oaj" path="res://scenes/lamp_3.tscn" id="11_gk7gy"]
+[ext_resource type="PackedScene" uid="uid://gt8isw7ytnyu" path="res://scenes/lamp_4.tscn" id="12_fh1ri"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ta75g"]
+size = Vector3(2.2, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8giu"]
+render_priority = 1
+albedo_texture = ExtResource("2_1alau")
+roughness_texture = ExtResource("6_x54i0")
+normal_enabled = true
+normal_texture = ExtResource("5_qd4fp")
+ao_enabled = true
+ao_texture = ExtResource("3_bc7l6")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_lulc2")
+uv1_scale = Vector3(5.99, 5.99, 5.99)
+uv1_offset = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+uv1_triplanar_sharpness = 150.0
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_wuqmi"]
+size = Vector3(10, 0.3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5r48"]
+albedo_texture = ExtResource("3_0g83t")
+
+[sub_resource type="BoxMesh" id="BoxMesh_130ro"]
+size = Vector3(1, 3, 3)
 
 [node name="city" instance=ExtResource("1_xpt1s")]
+
+[node name="Plane_002" parent="." index="0"]
+transform = Transform3D(1.60408, 0, 0, 0, 1, 0, 0, 0, 43.9338, 2.059, 2.08165e-12, 2.08165e-12)
+mesh = SubResource("BoxMesh_ta75g")
+surface_material_override/0 = SubResource("StandardMaterial3D_i8giu")
+
+[node name="billboard" parent="." index="14" instance=ExtResource("2_wm3vm")]
+transform = Transform3D(-1, 8.74228e-08, -1.5246e-23, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 4.90964, 3.59463, -12.9677)
+
+[node name="bridge" type="MeshInstance3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40855, 0.965737, -15.35)
+mesh = SubResource("BoxMesh_wuqmi")
+surface_material_override/0 = SubResource("StandardMaterial3D_u5r48")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bridge" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5567, -1.55736, 0)
+mesh = SubResource("BoxMesh_130ro")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bridge" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.557, -1.55762, 0)
+mesh = SubResource("BoxMesh_130ro")
+
+[node name="lamp1" parent="." index="16" instance=ExtResource("9_0p1hq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49265, 3.17069, -21.8659)
+
+[node name="lamp2" parent="." index="17" instance=ExtResource("10_rugkx")]
+
+[node name="lamp3" parent="." index="18" instance=ExtResource("11_gk7gy")]
+
+[node name="lamp4" parent="." index="19" instance=ExtResource("12_fh1ri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.44787, -5.3319)

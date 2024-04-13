@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsukl35vej8c0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1b8bc"]
+size = Vector3(0.2, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uoqyw"]
+albedo_color = Color(1, 1, 0.627451, 1)
+
+[node name="billboard" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_1b8bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_uoqyw")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D"]
+transform = Transform3D(1, -6.97574e-16, 4.15924e-24, 4.15924e-24, 1.19249e-08, 1, -6.97574e-16, -1, 1.19249e-08, 0, 0.0504509, 0)
+modulate = Color(0.894118, 0, 0.901961, 1)
+outline_modulate = Color(1, 1, 1, 1)
+text = "敵
+を
+殺
+せ"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172758, -0.0287018)
+light_color = Color(0.839216, 0.862745, 1, 1)
+omni_range = 0.76
+omni_attenuation = 0.233258

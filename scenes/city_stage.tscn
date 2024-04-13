@@ -11,7 +11,13 @@ sky_material = SubResource("PanoramaSkyMaterial_8464y")
 
 [sub_resource type="Environment" id="Environment_x6op7"]
 background_mode = 2
+background_energy_multiplier = 2.18
 sky = SubResource("Sky_v2bik")
+sky_rotation = Vector3(-0.342085, 3.28296, 3.48787e-16)
+ambient_light_source = 3
+reflected_light_source = 2
+glow_enabled = true
+glow_blend_mode = 0
 
 [node name="Node3D" type="Node3D"]
 
