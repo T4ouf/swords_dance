@@ -96,12 +96,15 @@ func _physics_process(delta):
 		elif Input.is_action_pressed(action_guard):
 			if Input.is_action_pressed(action_low):
 				idling = false
+				guarding = true
 				animation_player.play("guard_low")
 			elif Input.is_action_pressed(action_mid):
 				idling = false
+				guarding = true
 				animation_player.play("guard_mid")
 			elif Input.is_action_pressed(action_high):
 				idling = false
+				guarding = true
 				animation_player.play("guard_high")
 		elif Input.is_action_pressed(action_bait):
 			if Input.is_action_pressed(action_low):
@@ -116,7 +119,7 @@ func _physics_process(delta):
 				idling = false
 				animation_player.play("bait_high")
 
-			guarding = not idling
+			#guarding = not idling
 
 		if not idling:
 			velocity.x = 0
@@ -127,15 +130,18 @@ func _physics_process(delta):
 		move_and_slide()
 	else:
 		var collision = move_and_collide(delta * velocity)
-		if collision != null:
-			print(collision.get_local_shape().name, " -> ", collision.get_collider_shape().name)
+		if collision != null and collision.get_collider_shape().get_parent().name == "Platform":
+			var blabla=1
+		elif collision != null :
+			print(collision.get_local_shape().name, " -> ", collision.get_collider_shape().get_parent().name)
 			#print(collision.get_local_shape() == sword)
 		if collision != null and collision.get_local_shape() == sword:
 			if collision.get_collider_shape() == opponent_sword:
+				
+				print("In Clash")
 				if opponent.guarding:
 					print("In Guard")
 					reverse_animation()
-					opponent.idling = false;
 					opponent_animator.play("attack_mid") 
 				else:
 					var normal = collision.get_normal()
@@ -176,5 +182,6 @@ func _on_sword_area_area_entered(area):
 	# detect the opponent's sword
 	if area == opponent.get_node("SwordArea"):
 		velocity.x -= (2 * player_number - 3) * speed
+	
 		#TODO implement guard here ?
 	move_and_slide()
