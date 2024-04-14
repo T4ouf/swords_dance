@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dr0lev4nd40ef"]
+[gd_scene load_steps=29 format=3 uid="uid://dr0lev4nd40ef"]
 
 [ext_resource type="Script" path="res://scripts/beach_manager.gd" id="1_cn0a7"]
 [ext_resource type="Texture2D" uid="uid://bvoxlroo0j6" path="res://textures/beach_skybox.png" id="2_hr4bt"]
@@ -9,6 +9,8 @@
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="8_hkk2o"]
 [ext_resource type="AudioStream" uid="uid://bdd633fg5se5m" path="res://audio/birds_sound.mp3" id="9_agts3"]
 [ext_resource type="AudioStream" uid="uid://bhho4j2coxuqv" path="res://audio/water_waves.mp3" id="9_e2mg3"]
+[ext_resource type="AudioStream" uid="uid://n12ehwxgs7pi" path="res://audio/beach_music.mp3" id="10_h7piw"]
+[ext_resource type="PackedScene" uid="uid://dto7bkwlg2w7d" path="res://scenes/fight_main.tscn" id="11_f3um8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w2dpn"]
 panorama = ExtResource("2_hr4bt")
@@ -213,3 +215,9 @@ surface_material_override/0 = SubResource("ShaderMaterial_uw7ab")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.0726)
 stream = ExtResource("9_e2mg3")
 autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_h7piw")
+autoplay = true
+
+[node name="FightMain" parent="." instance=ExtResource("11_f3um8")]

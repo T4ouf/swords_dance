@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjceyi8mtv5or" path="res://scenes/platform.tscn" id="2_3d78j"]
 
 [node name="FightMain" type="Node2D"]
+position = Vector2(80, 250)
 script = ExtResource("1_wmawu")
 
 [node name="Player1" parent="." instance=ExtResource("1_7y0uo")]
@@ -16,6 +17,14 @@ scale = Vector2(-1, 1)
 
 [node name="Platform" parent="." instance=ExtResource("2_3d78j")]
 position = Vector2(-86, 264)
+
+[node name="Platform2" parent="." instance=ExtResource("2_3d78j")]
+position = Vector2(-107.24, 400)
+rotation = 4.71239
+
+[node name="Platform3" parent="." instance=ExtResource("2_3d78j")]
+position = Vector2(1074.97, 400)
+rotation = 4.71239
 
 [connection signal="round_win" from="Player1" to="." method="_on_player_1_round_win"]
 [connection signal="round_win" from="Player2" to="." method="_on_player_2_round_win"]
