@@ -18,6 +18,7 @@ signal round_win
 @onready var action_attack = "action_attack_p%d" % player_number
 @onready var action_guard = "action_guard_p%d" % player_number
 @onready var action_bait = "action_bait_p%d" % player_number
+@onready var action_other = "action_other_p%d" % player_number
 @onready var action_low = "action_low_p%d" % player_number
 @onready var action_mid = "action_mid_p%d" % player_number
 @onready var action_high = "action_high_p%d" % player_number
@@ -78,7 +79,8 @@ func _physics_process(delta):
 			elif(player_number == 2) :
 				animation_player.play("walk_forward_left");
 		else :
-			animation_player.stop()
+			if animation_player.current_animation != "idle":
+				animation_player.play("idle")
 			# animation_player.play("idle");
 		
 		if direction:
@@ -113,15 +115,23 @@ func _physics_process(delta):
 		elif Input.is_action_pressed(action_bait):
 			if Input.is_action_pressed(action_low):
 				idling = false
-				#TODO
-				#animation_player.play("bait_low")
+				animation_player.play("bait_low")
 			elif Input.is_action_pressed(action_mid):
 				idling = false
-				#TODO
-				#animation_player.play("bait_mid")
+				animation_player.play("bait_mid")
 			elif Input.is_action_pressed(action_high):
 				idling = false
 				animation_player.play("bait_high")
+		elif Input.is_action_pressed(action_other):
+			if Input.is_action_pressed(action_low):
+				idling = false
+				animation_player.play("crouch")
+			elif Input.is_action_pressed(action_mid):
+				idling = false
+				animation_player.play("attack_mid_strong")
+			elif Input.is_action_pressed(action_high):
+				idling = false
+				animation_player.play("jump")
 
 
 		if not idling:

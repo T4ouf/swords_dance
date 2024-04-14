@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://clyye3dykaeke"]
+[gd_scene load_steps=19 format=3 uid="uid://clyye3dykaeke"]
 
 [ext_resource type="Texture2D" uid="uid://cnjont2287ngf" path="res://art/img/UI/background.png" id="1_4rskg"]
 [ext_resource type="FontFile" uid="uid://0gsmutuj3k1a" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="1_51rcw"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b3psoyfwi06wb" path="res://art/img/UI/btn/Editors_Barnstar_Hires.png" id="10_h877l"]
 [ext_resource type="Texture2D" uid="uid://dt14v1cew5utc" path="res://art/img/UI/btn/Dark_light_Barnstar.png" id="11_lyea8"]
 [ext_resource type="Script" path="res://scripts/sceneLoadBtn.gd" id="12_hnl62"]
+[ext_resource type="AudioStream" uid="uid://byi7bghnij7f6" path="res://audio/MenuTheme.mp3" id="13_4qm1r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3e4ln"]
 animations = [{
@@ -79,11 +80,7 @@ animations = [{
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 
 [node name="images" type="Node2D" parent="."]
 z_index = -2
@@ -184,7 +181,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BeachStageBtn" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 416.0
 offset_top = 450.0
 offset_right = 2416.0
@@ -196,7 +192,6 @@ script = ExtResource("12_hnl62")
 sceneName = "beach_stage.tscn"
 
 [node name="CityStageBtn" type="TextureButton" parent="."]
-layout_mode = 0
 offset_left = 663.0
 offset_top = 450.0
 offset_right = 2663.0
@@ -206,6 +201,11 @@ texture_normal = ExtResource("10_h877l")
 texture_hover = ExtResource("11_lyea8")
 script = ExtResource("12_hnl62")
 sceneName = "city_stage.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_4qm1r")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="BeachStageBtn" to="BeachStageBtn" method="_on_pressed"]
 [connection signal="pressed" from="CityStageBtn" to="CityStageBtn" method="_on_pressed"]
