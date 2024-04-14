@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bhho4j2coxuqv" path="res://audio/water_waves.mp3" id="2_em2yw"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_dv1jt"]
-size = Vector2(300, 100)
+size = Vector2(300, 200)
 subdivide_width = 1000
 subdivide_depth = 1000
 orientation = 1
@@ -13,7 +13,7 @@ orientation = 1
 noise_type = 3
 fractal_type = 2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x2fsj"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bawb0"]
 seamless = true
 as_normal_map = true
 bump_strength = 1.5
@@ -23,7 +23,7 @@ noise = SubResource("FastNoiseLite_vydhc")
 noise_type = 3
 fractal_type = 2
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yr4k1"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hxy6e"]
 seamless = true
 as_normal_map = true
 bump_strength = 5.0
@@ -31,7 +31,7 @@ noise = SubResource("FastNoiseLite_wccsn")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_203cx"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d5r7n"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gl8am"]
 seamless = true
 noise = SubResource("FastNoiseLite_203cx")
 
@@ -55,9 +55,9 @@ shader_parameter/edge_scale = 0.1
 shader_parameter/near = 1.0
 shader_parameter/far = 100.0
 shader_parameter/edge_color = Color(0.482353, 0.223529, 1, 1)
-shader_parameter/wave = SubResource("NoiseTexture2D_d5r7n")
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_x2fsj")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_yr4k1")
+shader_parameter/wave = SubResource("NoiseTexture2D_gl8am")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_bawb0")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_hxy6e")
 
 [node name="water" type="Node3D"]
 
