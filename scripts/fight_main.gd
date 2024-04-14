@@ -37,16 +37,15 @@ func _on_player_2_round_win():
 		pass
 	start()
 
-
-func _on_round_tie():
-	print("Its a tie")
-	start()
-
 func start():
-	player1.set_deferred("disabled", false)
-	player2.set_deferred("disabled", false)
-	# player1.animation_player.stop()
-	# player2.animation_player.stop()
+	for player in [player1, player2]:
+		if player.animation_player.is_playing():
+			await player.animation_player.animation_finished
+			
+		player.velocity = Vector2.ZERO
+		player.wait = false
+
 	player1.position = p1_initial_position
 	player2.position = p2_initial_position
+	
 	

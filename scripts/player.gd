@@ -29,7 +29,8 @@ var opponent_animator : AnimationPlayer
 
 var idling = true
 var guarding = false
-
+var cancelling = false
+var wait = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -58,6 +59,8 @@ func _physics_process(delta):
 	
 	# TODO: correctly handle input
 	# see https://docs.godotengine.org/en/stable/tutorials/inputs/controllers_gamepads_joysticks.html
+	if not idling:
+		var _collision = move_and_collide(delta * 0.01 * velocity)
 	if idling:# not animation_player.is_playing():
 		var direction = 0
 		
@@ -75,7 +78,8 @@ func _physics_process(delta):
 			elif(player_number == 2) :
 				animation_player.play("walk_forward_left");
 		else :
-			animation_player.play("idle");
+			animation_player.stop()
+			# animation_player.play("idle");
 		
 		if direction:
 			velocity.x = direction * speed
@@ -119,69 +123,92 @@ func _physics_process(delta):
 				idling = false
 				animation_player.play("bait_high")
 
-			#guarding = not idling
 
 		if not idling:
 			velocity.x = 0
-		# elif Input.is_action_pressed("action_guard"):
-		# 	velocity.x = 0
 		
-	
 		move_and_slide()
-	else:
-		var collision = move_and_collide(delta * velocity)
-		if collision != null and collision.get_collider_shape().get_parent().name == "Platform":
-			var blabla=1
-		elif collision != null :
-			print(collision.get_local_shape().name, " -> ", collision.get_collider_shape().get_parent().name)
-			#print(collision.get_local_shape() == sword)
-		if collision != null and collision.get_local_shape() == sword:
-			if collision.get_collider_shape() == opponent_sword:
-				
-				print("In Clash")
-				if opponent.guarding:
-					print("In Guard")
-					reverse_animation()
-					opponent_animator.play("attack_mid") 
-				else:
-					var normal = collision.get_normal()
-					normal.y = 0
-					velocity = velocity.bounce(normal.normalized())
-					sword.disabled = true
-					opponent_sword.disabled = true
-					#sword.set_deferred("disabled", true)
-					#opponent_sword.set_deferred("disabled", true)
-					move_and_slide()
 			
 func _on_animation_player_animation_finished(_anim_name):
-	if(_anim_name == "hit") : 
-		opponent.round_win.emit()
-		
 	animation_player.play("idle")
 	idling = true
 	guarding = false
+	cancelling = false
 
 func reverse_animation():
-	var played = animation_player.current_animation_position
-	var length = animation_player.current_animation_length
-	var current = animation_player.assigned_animation
+	animation_player.play_backwards()
+	# animation_player.play("", -1, -1)
 
-	#animation_player.stop()
-	animation_player.play_backwards(current)
-	animation_player.seek(length - played)
+func _process(_delta):
+	if wait:
+		return
 
-func _on_sword_area_body_entered(body):
-	# detect the hitboxes
-	if body == opponent:
-		opponent_animator.play("hit");
-		opponent.idling = false;
-		
+	var collides_sword = $SwordArea.overlaps_area(opponent.get_node("SwordArea"))
+	var collides_body = $SwordArea.overlaps_body(opponent)
 
-
-func _on_sword_area_area_entered(area):
-	# detect the opponent's sword
-	if area == opponent.get_node("SwordArea"):
-		velocity.x -= (2 * player_number - 3) * speed
+	if not guarding and collides_body and not cancelling:
+		if not collides_sword:
+			opponent.animation_player.play("hit")
+			idling = false
+			opponent.idling = false
+			wait = true
+			opponent.wait = true
+			round_win.emit()
+			return
 	
-		#TODO implement guard here ?
-	move_and_slide()
+	if collides_sword:
+		if guarding:
+			if not opponent.guarding:
+				opponent.cancelling = true
+				opponent.reverse_animation()
+				guarding = false
+				var attack_type = opponent.animation_player.current_animation.split("_")[1]
+				animation_player.play("attack_%s" % attack_type)
+		elif opponent.guarding:
+			cancelling = true
+			reverse_animation()
+		else:
+			var old_velocity = velocity
+			velocity.x -= (2 * player_number - 3) * 4 * speed
+			cancelling = true
+			reverse_animation()
+			velocity = old_velocity
+			move_and_slide()
+
+	# dead = false
+	# swords_collided = false
+
+# func _on_sword_area_body_entered(body):
+# 	# print("body")
+# 	# foo1 = true
+# 	# detect the hitboxes
+# 	if not guarding and body == opponent and not cancelling and not opponent.cancelling:
+# 		# dead = true
+# 		opponent_animator.play("hit")
+# 		opponent.idling = false
+# 		cancelling = true
+# 		
+#
+#
+# func _on_sword_area_area_entered(area):
+# 	# print("area")
+# 	# foo2 = true
+# 	# detect the opponent's sword
+# 	# swords_collided = false
+# 	if area == opponent.get_node("SwordArea"):
+# 		if guarding:
+# 			opponent.cancelling = true
+# 			opponent.reverse_animation()
+# 			guarding = false
+# 			animation_player.play("attack_mid")
+# 		elif not opponent.guarding and not opponent.cancelling:
+# 			var old_velocity = velocity
+# 			velocity.x -= (2 * player_number - 3) * 4 * speed
+# 			cancelling = true
+# 			opponent.cancelling = true
+# 			move_and_slide()
+# 			velocity = old_velocity
+# 		# swords_collided = true
+# 		# cancelling = true
+# 	
+
