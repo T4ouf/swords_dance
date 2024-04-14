@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5n4uv3b726e7"]
+
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_o4ox3"]
+[ext_resource type="AudioStream" uid="uid://bhho4j2coxuqv" path="res://audio/water_waves.mp3" id="2_em2yw"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_dv1jt"]
+size = Vector2(300, 100)
+subdivide_width = 1000
+subdivide_depth = 1000
+orientation = 1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vydhc"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x2fsj"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_vydhc")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wccsn"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yr4k1"]
+seamless = true
+as_normal_map = true
+bump_strength = 5.0
+noise = SubResource("FastNoiseLite_wccsn")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_203cx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d5r7n"]
+seamless = true
+noise = SubResource("FastNoiseLite_203cx")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o51df"]
+render_priority = 0
+shader = ExtResource("1_o4ox3")
+shader_parameter/albedo = Color(0, 0.321569, 0.431373, 1)
+shader_parameter/albedo2 = Color(1.26551e-06, 0.374927, 0.610548, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.2
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.025
+shader_parameter/noise_scale = 100.0
+shader_parameter/height_scale = 0.35
+shader_parameter/color_deep = null
+shader_parameter/color_shallow = null
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0.482353, 0.223529, 1, 1)
+shader_parameter/wave = SubResource("NoiseTexture2D_d5r7n")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_x2fsj")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_yr4k1")
+
+[node name="water" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_dv1jt")
+surface_material_override/0 = SubResource("ShaderMaterial_o51df")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.2786)
+stream = ExtResource("2_em2yw")
+autoplay = true

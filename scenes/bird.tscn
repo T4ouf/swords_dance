@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://pcvujbfktpct"]
+
+[ext_resource type="PackedScene" uid="uid://c5q8wkmld1c81" path="res://models/bird.glb" id="1_yqt3v"]
+
+[node name="bird" instance=ExtResource("1_yqt3v")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/3/rotation = Quaternion(-0.135101, -0.118401, -0.657626, 0.731613)
+bones/4/rotation = Quaternion(-0.00275054, 0.00315404, -0.117741, 0.993035)
+bones/5/rotation = Quaternion(-1.16415e-09, -6.40284e-09, 1.88011e-08, 1)
+bones/6/rotation = Quaternion(-0.199002, 0.189484, 0.64077, 0.716874)
+bones/7/rotation = Quaternion(-0.0264675, 0.00113364, 0.117778, 0.992687)
+bones/8/rotation = Quaternion(2.80786e-16, -6.75209e-09, -4.07454e-10, 1)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "ArmatureAction"
