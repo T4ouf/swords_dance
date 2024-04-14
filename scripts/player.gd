@@ -8,7 +8,7 @@ signal round_win
 
 @onready var animation_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
-@onready var sword = $SwordHitbox
+@onready var sword = $SwordArea/SwordHitbox
 
 @onready var player_number = 1 if name == "Player1" else 2
 @onready var move_left_action = "move_left_p%d" % player_number
@@ -17,6 +17,7 @@ signal round_win
 @onready var move_down_action = "move_down_p%d" % player_number
 @onready var action_attack = "action_attack_p%d" % player_number
 @onready var action_guard = "action_guard_p%d" % player_number
+@onready var action_bait = "action_bait_p%d" % player_number
 @onready var action_low = "action_low_p%d" % player_number
 @onready var action_mid = "action_mid_p%d" % player_number
 @onready var action_high = "action_high_p%d" % player_number
@@ -24,8 +25,10 @@ signal round_win
 var opponent : CharacterBody2D
 var opponent_sword : CollisionPolygon2D
 var opponent_hitbox : CollisionShape2D
+var opponent_animator : AnimationPlayer
 
 var idling = true
+var guarding = false
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -41,16 +44,18 @@ func _ready():
 			opponent = child
 			break
 	
-	opponent_sword = opponent.get_node("SwordHitbox")
+	opponent_sword = opponent.get_node("SwordArea/SwordHitbox")
 	opponent_hitbox = opponent.get_node("PlayerHitbox")
+	opponent_animator = opponent.get_node("AnimationPlayer")
 
 	animation_player.play("idle")
 
 	sword.set_deferred("disabled", true)
 
 func _physics_process(delta):
-	velocity.y += delta * gravity
-
+	#velocity.y += delta * gravity
+	velocity.y = gravity
+	
 	# TODO: correctly handle input
 	# see https://docs.godotengine.org/en/stable/tutorials/inputs/controllers_gamepads_joysticks.html
 	if idling:# not animation_player.is_playing():
@@ -58,9 +63,19 @@ func _physics_process(delta):
 		
 		if Input.is_action_pressed(move_left_action):
 			direction -= 1
+			if(player_number == 1) : 
+				animation_player.play("walk_forward_left");
+			elif(player_number == 2) :
+				animation_player.play("walk_backward_right");
 			
-		if Input.is_action_pressed(move_right_action):
+		elif Input.is_action_pressed(move_right_action):
 			direction += 1
+			if(player_number == 1) : 
+				animation_player.play("walk_backward_right");
+			elif(player_number == 2) :
+				animation_player.play("walk_forward_left");
+		else :
+			animation_player.play("idle");
 		
 		if direction:
 			velocity.x = direction * speed
@@ -81,13 +96,30 @@ func _physics_process(delta):
 		elif Input.is_action_pressed(action_guard):
 			if Input.is_action_pressed(action_low):
 				idling = false
-				# animation_player.play("guard_low")
+				guarding = true
+				animation_player.play("guard_low")
 			elif Input.is_action_pressed(action_mid):
 				idling = false
-				# animation_player.play("guard_mid")
+				guarding = true
+				animation_player.play("guard_mid")
 			elif Input.is_action_pressed(action_high):
 				idling = false
-				# animation_player.play("guard_high")
+				guarding = true
+				animation_player.play("guard_high")
+		elif Input.is_action_pressed(action_bait):
+			if Input.is_action_pressed(action_low):
+				idling = false
+				#TODO
+				#animation_player.play("bait_low")
+			elif Input.is_action_pressed(action_mid):
+				idling = false
+				#TODO
+				#animation_player.play("bait_mid")
+			elif Input.is_action_pressed(action_high):
+				idling = false
+				animation_player.play("bait_high")
+
+			#guarding = not idling
 
 		if not idling:
 			velocity.x = 0
@@ -98,17 +130,58 @@ func _physics_process(delta):
 		move_and_slide()
 	else:
 		var collision = move_and_collide(delta * velocity)
+		if collision != null and collision.get_collider_shape().get_parent().name == "Platform":
+			var blabla=1
+		elif collision != null :
+			print(collision.get_local_shape().name, " -> ", collision.get_collider_shape().get_parent().name)
+			#print(collision.get_local_shape() == sword)
 		if collision != null and collision.get_local_shape() == sword:
 			if collision.get_collider_shape() == opponent_sword:
-				var normal = collision.get_normal()
-				normal.y = 0
-				velocity = velocity.bounce(normal.normalized())
-				sword.set_deferred("disabled", true)
-				opponent_sword.set_deferred("disabled", true)
-				move_and_slide()
-			elif collision.get_collider_shape() == opponent_hitbox: # hit the body
-				round_win.emit()
-
+				
+				print("In Clash")
+				if opponent.guarding:
+					print("In Guard")
+					reverse_animation()
+					opponent_animator.play("attack_mid") 
+				else:
+					var normal = collision.get_normal()
+					normal.y = 0
+					velocity = velocity.bounce(normal.normalized())
+					sword.disabled = true
+					opponent_sword.disabled = true
+					#sword.set_deferred("disabled", true)
+					#opponent_sword.set_deferred("disabled", true)
+					move_and_slide()
+			
 func _on_animation_player_animation_finished(_anim_name):
+	if(_anim_name == "hit") : 
+		opponent.round_win.emit()
+		
 	animation_player.play("idle")
 	idling = true
+	guarding = false
+
+func reverse_animation():
+	var played = animation_player.current_animation_position
+	var length = animation_player.current_animation_length
+	var current = animation_player.assigned_animation
+
+	#animation_player.stop()
+	animation_player.play_backwards(current)
+	animation_player.seek(length - played)
+
+func _on_sword_area_body_entered(body):
+	# detect the hitboxes
+	if body == opponent:
+		opponent_animator.play("hit");
+		opponent.idling = false;
+		
+
+
+func _on_sword_area_area_entered(area):
+	# detect the opponent's sword
+	if area == opponent.get_node("SwordArea"):
+		velocity.x -= (2 * player_number - 3) * speed
+	
+		#TODO implement guard here ?
+	move_and_slide()
