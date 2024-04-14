@@ -1,11 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2odti4ryjmmg"]
 
 [ext_resource type="Script" path="res://scripts/fightUI.gd" id="1_2glju"]
-[ext_resource type="FontFile" uid="uid://0gsmutuj3k1a" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="1_4fl14"]
-[ext_resource type="Texture2D" uid="uid://da574wyk17e6m" path="res://art/img/UI/ScoreBoard.png" id="1_a6xmo"]
+[ext_resource type="FontFile" uid="uid://cs40envjsryw1" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="1_4fl14"]
+[ext_resource type="Texture2D" uid="uid://ctcllec2ayg65" path="res://art/img/UI/ScoreBoard.png" id="1_a6xmo"]
 
 [node name="FightUi" type="CanvasLayer"]
 script = ExtResource("1_2glju")
+scoreLimit = 1
 
 [node name="ScoreBoard" type="Sprite2D" parent="."]
 z_index = -1
@@ -13,7 +14,7 @@ position = Vector2(574, 82)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_a6xmo")
 
-[node name="ScoreLabelP1" type="Label" parent="."]
+[node name="ScoreLabelP2" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -32,7 +33,7 @@ text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabelP2" type="Label" parent="."]
+[node name="ScoreLabelP1" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -47,5 +48,17 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_4fl14")
 theme_override_font_sizes/font_size = 64
 text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VictoryLabel" type="Label" parent="."]
+visible = false
+offset_left = 285.0
+offset_top = 217.0
+offset_right = 864.0
+offset_bottom = 294.0
+theme_override_fonts/font = ExtResource("1_4fl14")
+theme_override_font_sizes/font_size = 64
+text = "Victory"
 horizontal_alignment = 1
 vertical_alignment = 1

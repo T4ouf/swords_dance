@@ -1,9 +1,5 @@
 extends Node2D
 
-@export var score_limit = 15
-
-var player1_score = 0
-var player2_score = 0
 var p1_initial_position : Vector2
 var p2_initial_position : Vector2
 
@@ -22,30 +18,36 @@ func _process(delta):
 
 
 func _on_player_1_round_win():
+	$FightUi.up_score($FightUi.PLAYER1)
+	await player2.animation_player.animation_finished
 	print("p1 won")
-	player1_score += 1
-	if player1_score >= score_limit:
-		pass
 	start()
 
 
 func _on_player_2_round_win():
+	$FightUi.up_score($FightUi.PLAYER2)
+	await player1.animation_player.animation_finished
 	print("p2 won")
-	
-	player2_score += 1
-	if player2_score >= score_limit:
-		pass
 	start()
 
 func start():
 	for player in [player1, player2]:
-		if player.animation_player.is_playing():
-			await player.animation_player.animation_finished
-			
+		# while player.animation_player.is_playing() && not player.animation_player.current_animation == "idle":
+		# 	await player.animation_player.animation_finished
+		# 	
 		player.velocity = Vector2.ZERO
 		player.wait = false
 
 	player1.position = p1_initial_position
+	player1.animation_player.play("idle")
+	player1.idling = true
 	player2.position = p2_initial_position
+	player2.animation_player.play("idle")
+	player2.idling = true
 	
-	
+
+func _on_fight_ui_game_end():
+	$ReturnToMainTimer.start(3)
+
+func _on_return_to_main_timer_timeout():
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
