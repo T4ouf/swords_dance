@@ -1,22 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr0lev4nd40ef"]
+[gd_scene load_steps=18 format=3 uid="uid://dr0lev4nd40ef"]
 
-[ext_resource type="Texture2D" uid="uid://dlfatcern2luq" path="res://textures/water_normalmap.png" id="1_tc15j"]
-[ext_resource type="Texture2D" uid="uid://2wp7f0bqcker" path="res://textures/beach_skybox.png" id="2_hr4bt"]
-[ext_resource type="Texture2D" uid="uid://v21frk7cp4nk" path="res://textures/sand.jpeg" id="3_d0cxt"]
-[ext_resource type="Texture2D" uid="uid://ccd4r5lec5aoi" path="res://textures/sand_normalmap.png" id="4_m8jtl"]
-[ext_resource type="Texture2D" uid="uid://b7oyuxthbo5hs" path="res://textures/sand_roughness.jpeg" id="5_mqyjt"]
-[ext_resource type="PackedScene" uid="uid://f3e6s8juyuwx" path="res://models/shade.glb" id="6_kd2k2"]
-[ext_resource type="PackedScene" uid="uid://cmi3rnya1n6db" path="res://models/bench.glb" id="7_u4e3d"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_681gk"]
-size = Vector2(500, 200)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koo4w"]
-transparency = 1
-albedo_color = Color(0, 0.403922, 0.960784, 0.862745)
-normal_enabled = true
-normal_scale = 2.36
-normal_texture = ExtResource("1_tc15j")
+[ext_resource type="Script" path="res://scripts/beach_manager.gd" id="1_cn0a7"]
+[ext_resource type="PackedScene" uid="uid://c5n4uv3b726e7" path="res://scenes/water.tscn" id="1_l0vmg"]
+[ext_resource type="Texture2D" uid="uid://bvoxlroo0j6" path="res://textures/beach_skybox.png" id="2_hr4bt"]
+[ext_resource type="Texture2D" uid="uid://c01odmxjgp5ec" path="res://textures/sand.jpeg" id="3_d0cxt"]
+[ext_resource type="Texture2D" uid="uid://bvao4gncwus14" path="res://textures/sand_normalmap.png" id="4_m8jtl"]
+[ext_resource type="Texture2D" uid="uid://3b748ru1en70" path="res://textures/sand_roughness.jpeg" id="5_mqyjt"]
+[ext_resource type="PackedScene" uid="uid://brfjpikxiwiwr" path="res://models/shade.glb" id="6_kd2k2"]
+[ext_resource type="PackedScene" uid="uid://crh03iwnsp6jv" path="res://models/bench.glb" id="7_u4e3d"]
+[ext_resource type="PackedScene" uid="uid://pcvujbfktpct" path="res://scenes/bird.tscn" id="8_6t5p2"]
+[ext_resource type="AudioStream" uid="uid://bdd633fg5se5m" path="res://audio/birds_sound.mp3" id="9_agts3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w2dpn"]
 panorama = ExtResource("2_hr4bt")
@@ -45,14 +38,32 @@ normal_scale = -0.26
 normal_texture = ExtResource("4_m8jtl")
 texture_filter = 4
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="Animation" id="Animation_ediel"]
+resource_name = "birds"
+length = 20.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.2, 1, 149.28, 42.991, -60, 7.9, 1, 149.28, 42.991, -500, 14.2, 1, -150, 42.991, -60, 16.7, 1, -85.5888, 42.991, 188.638, 19.7, 1, 134.037, 42.991, 188.638)
 
-[node name="water" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_681gk")
-surface_material_override/0 = SubResource("StandardMaterial3D_koo4w")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8wu7"]
+_data = {
+"birds": SubResource("Animation_ediel")
+}
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_cn0a7")
+
+[node name="water" parent="." instance=ExtResource("1_l0vmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 7.81621, 78.579)
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_glgli")
@@ -69,4 +80,42 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -15.98, 0.51, 53.39)
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -17.23, 0.71, 60.18)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 961.353, 189.455, -1696.73)
+transform = Transform3D(-0.975149, -0.113774, 0.190103, 2.99282e-16, 0.858065, 0.513541, -0.221549, 0.500779, -0.836741, 961.353, 189.455, -1696.73)
+
+[node name="birds" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, 149.28, 42.991, -60)
+
+[node name="bird" parent="birds" instance=ExtResource("8_6t5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="bird2" parent="birds" instance=ExtResource("8_6t5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, 3.7732, 1.82583, 1.64934e-07)
+
+[node name="bird3" parent="birds" instance=ExtResource("8_6t5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, -2.44214, 1.41468, -1.06747e-07)
+
+[node name="bird4" parent="birds" instance=ExtResource("8_6t5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, 2.72677, -1.71343, 1.19193e-07)
+
+[node name="bird5" parent="birds" instance=ExtResource("8_6t5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, -4.25357, 2.08313e-12, -1.85927e-07)
+
+[node name="bird6" parent="birds" instance=ExtResource("8_6t5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, 2.08268e-12, 2.95929, 2.08062e-12)
+
+[node name="bird7" parent="birds" instance=ExtResource("8_6t5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, -2.69551, 3.18979, -1.17822e-07)
+
+[node name="bird8" parent="birds" instance=ExtResource("8_6t5p2")]
+transform = Transform3D(1, 0, 0, 0, 1, 1.12238e-23, 0, 1.12238e-23, 1, 3.92146, 0.104728, 1.71414e-07)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="birds"]
+libraries = {
+"": SubResource("AnimationLibrary_m8wu7")
+}
+autoplay = "birds"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="birds"]
+stream = ExtResource("9_agts3")
+volume_db = 80.0
+autoplay = true
