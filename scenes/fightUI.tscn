@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2odti4ryjmmg"]
 
 [ext_resource type="Script" path="res://scripts/fightUI.gd" id="1_2glju"]
-[ext_resource type="FontFile" uid="uid://b1xgwfafuii0v" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="1_4fl14"]
-[ext_resource type="Texture2D" uid="uid://b1ey7htjnpdca" path="res://art/img/UI/ScoreBoard.png" id="1_a6xmo"]
+[ext_resource type="FontFile" uid="uid://cs40envjsryw1" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="1_4fl14"]
+[ext_resource type="Texture2D" uid="uid://ctcllec2ayg65" path="res://art/img/UI/ScoreBoard.png" id="1_a6xmo"]
 
 [node name="FightUi" type="CanvasLayer"]
 script = ExtResource("1_2glju")
