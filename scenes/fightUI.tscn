@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2odti4ryjmmg"]
+
+[ext_resource type="Script" path="res://scripts/fightUI.gd" id="1_2glju"]
+[ext_resource type="FontFile" uid="uid://0gsmutuj3k1a" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="1_4fl14"]
+[ext_resource type="Texture2D" uid="uid://da574wyk17e6m" path="res://art/img/UI/ScoreBoard.png" id="1_a6xmo"]
+
+[node name="FightUi" type="CanvasLayer"]
+script = ExtResource("1_2glju")
+
+[node name="ScoreBoard" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(574, 82)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_a6xmo")
+
+[node name="ScoreLabelP1" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.0
+offset_top = 77.0
+offset_right = 3.0
+offset_bottom = 133.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_4fl14")
+theme_override_font_sizes/font_size = 64
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabelP2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 78.0
+offset_right = 100.0
+offset_bottom = 134.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_4fl14")
+theme_override_font_sizes/font_size = 64
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
