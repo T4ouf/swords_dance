@@ -98,7 +98,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("../benz3")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1.06579, 2.08165e-12, -13.8866, 5.1, 1, 1.06579, 2.08165e-12, -20.0676, 6.9, 1, 1.06579, -13.5699, -19.923, 9, 1, 1.06579, -13.5699, 47.5124, 10.3, 1, 1.066, 2.08165e-12, 36.03)
+tracks/0/keys = PackedFloat32Array(0, 1, 1.06579, 2.08165e-12, -13.8866, 3.1, 1, 1.06579, 2.08165e-12, -20.0676, 4.9, 1, 1.06579, -13.5699, -19.923, 9, 1, 1.06579, -13.5699, 47.5124, 10.3, 1, 1.066, 2.08165e-12, 36.03)
 
 [sub_resource type="Animation" id="Animation_avwt2"]
 resource_name = "mazda"
@@ -467,28 +467,28 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3.67378, 0.18774, -13.5
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3.67378, 0.18774, -14.7655)
 
 [node name="lamp9" parent="lamps" index="24" instance=ExtResource("10_dm0pn")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.446498, 0.18774, -15.3172)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.318458, 0.18774, -15.3172)
 
 [node name="lamp10" parent="lamps" index="25" instance=ExtResource("10_dm0pn")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.446498, 0.18774, -16.1881)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.318458, 0.18774, -16.1881)
 
 [node name="lamp11" parent="lamps" index="26" instance=ExtResource("10_dm0pn")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.446498, 0.18774, -17.209)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.318458, 0.18774, -17.209)
 
 [node name="lamp12" parent="lamps" index="27" instance=ExtResource("10_dm0pn")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.446498, 0.18774, -18.4435)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.318458, 0.18774, -18.4435)
 
 [node name="lamp13" parent="lamps" index="28" instance=ExtResource("10_dm0pn")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.446498, 0.18774, -11.9928)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.318458, 0.18774, -11.9928)
 
 [node name="lamp14" parent="lamps" index="29" instance=ExtResource("10_dm0pn")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.446498, 0.18774, -12.5101)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.318458, 0.18774, -12.5101)
 
 [node name="lamp15" parent="lamps" index="30" instance=ExtResource("10_dm0pn")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.446498, 0.18774, -13.531)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.318458, 0.18774, -13.531)
 
 [node name="lamp16" parent="lamps" index="31" instance=ExtResource("10_dm0pn")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.446498, 0.18774, -14.482)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.318458, 0.18774, -14.482)
 
 [node name="sidewalk" parent="." index="25" instance=ExtResource("11_xxkab")]
 transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -1.08549, 0, 0)
@@ -515,7 +515,7 @@ libraries = {
 autoplay = "mazda"
 
 [node name="benz3" parent="." index="29" instance=ExtResource("12_mm6lb")]
-transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 1.06579, -1.50776, -20.0515)
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 1.06598, 2.08165e-12, 30.4837)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="benz3" index="1"]
 libraries = {
