@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://df654rns12ixq"]
 
 [ext_resource type="PackedScene" uid="uid://mrn4kgvvcqf3" path="res://scenes/city_model.tscn" id="1_hfrwx"]
-[ext_resource type="Texture2D" uid="uid://c1t2k6gq3j4ac" path="res://textures/city_skybox.png" id="2_6aqgs"]
+[ext_resource type="Texture2D" uid="uid://b4gsqcjbdp4xs" path="res://textures/city_skybox.png" id="2_6aqgs"]
 [ext_resource type="PackedScene" uid="uid://dto7bkwlg2w7d" path="res://scenes/fight_main.tscn" id="4_k7c5m"]
-[ext_resource type="AudioStream" uid="uid://wfhys6tpqdih" path="res://audio/LongLoopRapNeon.mp3" id="4_v5iii"]
+[ext_resource type="AudioStream" uid="uid://cyomj4f2qt8lt" path="res://audio/LongLoopRapNeon.mp3" id="4_v5iii"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8464y"]
 panorama = ExtResource("2_6aqgs")
@@ -35,6 +35,7 @@ transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 3.37, 0.52)
+current = true
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
