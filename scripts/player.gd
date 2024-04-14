@@ -99,7 +99,7 @@ func _physics_process(delta):
 			elif Input.is_action_pressed(action_high):
 				idling = false
 				animation_player.play("attack_high")
-		elif Input.is_action_pressed(action_guard):
+		if Input.is_action_pressed(action_guard):
 			if Input.is_action_pressed(action_low):
 				idling = false
 				guarding = true
@@ -112,7 +112,7 @@ func _physics_process(delta):
 				idling = false
 				guarding = true
 				animation_player.play("guard_high")
-		elif Input.is_action_pressed(action_bait):
+		if Input.is_action_pressed(action_bait):
 			if Input.is_action_pressed(action_low):
 				idling = false
 				animation_player.play("bait_low")
@@ -122,7 +122,7 @@ func _physics_process(delta):
 			elif Input.is_action_pressed(action_high):
 				idling = false
 				animation_player.play("bait_high")
-		elif Input.is_action_pressed(action_other):
+		if Input.is_action_pressed(action_other):
 			if Input.is_action_pressed(action_low):
 				idling = false
 				animation_player.play("crouch")
