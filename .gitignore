@@ -1,5 +1,6 @@
-# Mac bin files
+# bin files
 *.DS_Store
+*.dll
 
 # Godot 4+ specific ignores
 .godot/
