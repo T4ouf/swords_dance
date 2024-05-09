@@ -1,18 +1,18 @@
 [gd_scene load_steps=19 format=3 uid="uid://clyye3dykaeke"]
 
-[ext_resource type="Texture2D" uid="uid://fvmd2pu1ak7b" path="res://art/img/UI/background.png" id="1_4rskg"]
-[ext_resource type="FontFile" uid="uid://cs40envjsryw1" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="1_51rcw"]
-[ext_resource type="Texture2D" uid="uid://btqu6y2jn5co0" path="res://art/img/UI/shadowedCrossSwordsTransparent.png" id="2_enw81"]
-[ext_resource type="Texture2D" uid="uid://c6q60y58s03my" path="res://art/img/UI/shadowed_animations/shadowed_block_high2.png" id="4_y3uie"]
-[ext_resource type="Texture2D" uid="uid://dl4o4fw64mske" path="res://art/img/UI/shadowed_animations/shadowed_attack_high3.png" id="5_07b6q"]
-[ext_resource type="Texture2D" uid="uid://bs6v506nwfx5d" path="res://art/img/UI/shadowed_animations/shadow_idle/idle_animation0.png" id="6_abxop"]
-[ext_resource type="Texture2D" uid="uid://cj7uwo3cwf8p5" path="res://art/img/UI/shadowed_animations/shadow_idle/idle_animation1.png" id="7_fk50i"]
-[ext_resource type="Texture2D" uid="uid://cww1ffsq0624l" path="res://art/img/UI/shadowed_animations/shadow_idle/idle_animation2.png" id="8_egly0"]
-[ext_resource type="Texture2D" uid="uid://bhjq5q4h62ma0" path="res://art/img/UI/shadowed_animations/shadow_idle/idle_animation3.png" id="9_vhra0"]
-[ext_resource type="Texture2D" uid="uid://dw2vtgetgkg2e" path="res://art/img/UI/btn/Editors_Barnstar_Hires.png" id="10_h877l"]
-[ext_resource type="Texture2D" uid="uid://cvj7b38vsqs78" path="res://art/img/UI/btn/Dark_light_Barnstar.png" id="11_lyea8"]
+[ext_resource type="Texture2D" uid="uid://q5saq5gjtiks" path="res://art/img/UI/background.png" id="1_4rskg"]
+[ext_resource type="FontFile" uid="uid://cgly2b71mpq4" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="1_51rcw"]
+[ext_resource type="Texture2D" uid="uid://b6ylbvmo5pmwd" path="res://art/img/UI/shadowedCrossSwordsTransparent.png" id="2_enw81"]
+[ext_resource type="Texture2D" uid="uid://bk57n3rom2bbq" path="res://art/img/UI/shadowed_animations/shadowed_block_high2.png" id="4_y3uie"]
+[ext_resource type="Texture2D" uid="uid://0yecxyhikip1" path="res://art/img/UI/shadowed_animations/shadowed_attack_high3.png" id="5_07b6q"]
+[ext_resource type="Texture2D" uid="uid://dm5nrewqlomi4" path="res://art/img/UI/shadowed_animations/shadow_idle/idle_animation0.png" id="6_abxop"]
+[ext_resource type="Texture2D" uid="uid://b6qjo00clse87" path="res://art/img/UI/shadowed_animations/shadow_idle/idle_animation1.png" id="7_fk50i"]
+[ext_resource type="Texture2D" uid="uid://dh5iiwrk6b7f5" path="res://art/img/UI/shadowed_animations/shadow_idle/idle_animation2.png" id="8_egly0"]
+[ext_resource type="Texture2D" uid="uid://dtbia74l3hyb7" path="res://art/img/UI/shadowed_animations/shadow_idle/idle_animation3.png" id="9_vhra0"]
+[ext_resource type="Texture2D" uid="uid://ctmbttx4x8dho" path="res://art/img/UI/btn/Editors_Barnstar_Hires.png" id="10_h877l"]
+[ext_resource type="Texture2D" uid="uid://bnpkbbydfmwm6" path="res://art/img/UI/btn/Dark_light_Barnstar.png" id="11_lyea8"]
 [ext_resource type="Script" path="res://scripts/sceneLoadBtn.gd" id="12_hnl62"]
-[ext_resource type="AudioStream" uid="uid://capfq4uonwqjq" path="res://audio/MenuTheme.mp3" id="13_4qm1r"]
+[ext_resource type="AudioStream" uid="uid://cwoehe6saytgm" path="res://audio/MenuTheme.mp3" id="13_4qm1r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3e4ln"]
 animations = [{
@@ -202,7 +202,6 @@ sceneName = "city_stage.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_4qm1r")
-volume_db = -5.0
 autoplay = true
 
 [connection signal="pressed" from="BeachStageBtn" to="BeachStageBtn" method="_on_pressed"]
