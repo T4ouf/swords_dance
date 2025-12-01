@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://blgel740ei1ya"]
 
-[ext_resource type="PackedScene" uid="uid://bxu1u7rfh6f7g" path="res://models/cars/benz.glb" id="1_5j21v"]
-[ext_resource type="AudioStream" uid="uid://ddlpuhhayrvkh" path="res://audio/jeep.mp3" id="2_1w5v3"]
+[ext_resource type="PackedScene" path="res://models/cars/benz.glb" id="1_5j21v"]
+[ext_resource type="AudioStream" path="res://audio/jeep.mp3" id="2_1w5v3"]
 
 [node name="Sketchfab_Scene" instance=ExtResource("1_5j21v")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 2.08165e-12, 2.08165e-12, 2.08165e-12)

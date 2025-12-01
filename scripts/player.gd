@@ -158,6 +158,7 @@ func _process(_delta):
 
 	if not guarding and collides_body and not cancelling:
 		if not collides_sword:
+			opponent_sword.disabled = true
 			opponent.animation_player.play("hit")
 			idling = false
 			opponent.idling = false
@@ -221,4 +222,3 @@ func _process(_delta):
 # 		# swords_collided = true
 # 		# cancelling = true
 # 	
-

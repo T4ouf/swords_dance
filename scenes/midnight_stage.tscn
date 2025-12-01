@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://drrxdjj7n36qs"]
+
+[ext_resource type="Texture2D" uid="uid://boqoo2ek80b6r" path="res://art/img/stages/midnight/test1.jpg" id="2_tgh4b"]
+[ext_resource type="Shader" path="res://scenes/fog.gdshader" id="3_jr3q1"]
+[ext_resource type="PackedScene" uid="uid://dto7bkwlg2w7d" path="res://scenes/fight_main.tscn" id="10_cr1w4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elwcl"]
+shader = ExtResource("3_jr3q1")
+shader_parameter/baseColor = Color(0.698039, 1, 1, 0.870588)
+shader_parameter/fogIntensity = 0.8
+shader_parameter/fogSpeed = 0.5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mrhn0"]
+seed = 9
+frequency = 0.0063
+offset = Vector3(265.31, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qs8ad"]
+seamless = true
+normalize = false
+noise = SubResource("FastNoiseLite_mrhn0")
+
+[node name="Node3D" type="Node2D"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -6.0
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(574, 87)
+color = Color(0.0444848, 0, 0.579505, 1)
+energy = 0.45
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(579, 595)
+scale = Vector2(0.339608, 0.339608)
+texture = ExtResource("2_tgh4b")
+
+[node name="Fog" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_elwcl")
+offset_right = 1163.0
+offset_bottom = 653.0
+texture = SubResource("NoiseTexture2D_qs8ad")
+
+[node name="FightMain" parent="." instance=ExtResource("10_cr1w4")]
+visible = false
+texture_filter = 1
+position = Vector2(80, 400)
+
+[node name="Player1" parent="FightMain" index="0"]
+position = Vector2(500, 136)
+speed = 0.0
+
+[node name="Player2" parent="FightMain" index="1"]
+position = Vector2(500, 136)
+speed = 0.0
+
+[node name="FightUi" parent="FightMain" index="5"]
+visible = false
+offset = Vector2(290, 330)
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 290, 330)
+scoreLimit = 20
+
+[editable path="FightMain"]

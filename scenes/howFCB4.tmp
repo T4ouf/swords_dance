@@ -1,0 +1,970 @@
+[gd_scene load_steps=49 format=3 uid="uid://wdrsbha0qs7"]
+
+[ext_resource type="Texture2D" uid="uid://bsx0p28n8xcx7" path="res://art/img/UI/controlsMenuBG.png" id="1_4mw3d"]
+[ext_resource type="Texture2D" uid="uid://gjvw154wfio1" path="res://art/img/UI/shadowedCrossSwordsTransparent.png" id="2_ble1w"]
+[ext_resource type="FontFile" uid="uid://c57nf6reykgvc" path="res://art/fonts/VerminVives/Vermin Vibes 1989.ttf" id="3_42tg8"]
+[ext_resource type="Texture2D" uid="uid://l68pjk88rjsd" path="res://art/attack_high/attack_high0.png" id="4_ho770"]
+[ext_resource type="Texture2D" uid="uid://cpuoj2h14n3u8" path="res://art/attack_high/attack_high1.png" id="5_uo42b"]
+[ext_resource type="Texture2D" uid="uid://de2juuiwomfu5" path="res://art/attack_high/attack_high2.png" id="6_j4wbt"]
+[ext_resource type="Texture2D" uid="uid://hq578jnf87y4" path="res://art/attack_high/attack_high3.png" id="7_blob1"]
+[ext_resource type="Texture2D" uid="uid://sos6f6jfmeyp" path="res://art/attack_high/attack_high4.png" id="8_4egof"]
+[ext_resource type="Texture2D" uid="uid://cljekh5rafsnv" path="res://art/attack_high/attack_high5.png" id="9_1da1k"]
+[ext_resource type="Texture2D" uid="uid://bakvqe75s0gw8" path="res://art/block_high/block_high0.png" id="10_bji33"]
+[ext_resource type="Texture2D" uid="uid://fgcer7blhxfm" path="res://art/block_high/block_high1.png" id="11_bb737"]
+[ext_resource type="Texture2D" uid="uid://chl56w4vgdeoq" path="res://art/block_high/block_high2.png" id="12_2uljx"]
+[ext_resource type="Texture2D" uid="uid://ctq56yu13l7ti" path="res://art/bait_high/feint_high0.png" id="13_ovs31"]
+[ext_resource type="Texture2D" uid="uid://dutplbm6pfm4h" path="res://art/bait_high/feint_high1.png" id="14_oxbjt"]
+[ext_resource type="Texture2D" uid="uid://btqej17p5rhow" path="res://art/bait_high/feint_high2.png" id="15_fksdb"]
+[ext_resource type="Texture2D" uid="uid://cwhoj72rw8wjw" path="res://art/bait_high/feint_high3.png" id="16_g8cnb"]
+[ext_resource type="Texture2D" uid="uid://cttmlt2l8lcpa" path="res://art/bait_high/feint_high4.png" id="17_c5cnf"]
+[ext_resource type="Texture2D" uid="uid://bs26iyeddewa4" path="res://art/idle/idle_animation0.png" id="18_07aip"]
+[ext_resource type="Texture2D" uid="uid://dapqrxry82sua" path="res://art/idle/idle_animation1.png" id="19_txl46"]
+[ext_resource type="Texture2D" uid="uid://cqxgyglcl3ctu" path="res://art/idle/idle_animation2.png" id="20_r3pm2"]
+[ext_resource type="Texture2D" uid="uid://cqamoi0mjy1c5" path="res://art/idle/idle_animation3.png" id="21_s64ee"]
+[ext_resource type="Texture2D" uid="uid://c5br54jlae0wv" path="res://art/bait_mid/feint_mid0.png" id="22_fg3tf"]
+[ext_resource type="Texture2D" uid="uid://2jbqb7eth4x8" path="res://art/bait_mid/feint_mid1.png" id="23_t86gb"]
+[ext_resource type="Texture2D" uid="uid://c4001qw4ql42u" path="res://art/bait_mid/feint_mid2.png" id="24_dhk7l"]
+[ext_resource type="Texture2D" uid="uid://cshobuv3q3vch" path="res://art/bait_mid/feint_mid3.png" id="25_bgqla"]
+[ext_resource type="Texture2D" uid="uid://dxqqwi8k47lpo" path="res://art/bait_mid/feint_mid4.png" id="26_wm8km"]
+[ext_resource type="Texture2D" uid="uid://dauogps6soymw" path="res://art/bait_low/feint_low0.png" id="27_1mir8"]
+[ext_resource type="Texture2D" uid="uid://x483nrbrarvh" path="res://art/bait_low/feint_low1.png" id="28_8jtid"]
+[ext_resource type="Texture2D" uid="uid://4etau4kqmrmv" path="res://art/bait_low/feint_low2.png" id="29_c6ssk"]
+[ext_resource type="Texture2D" uid="uid://bs2amoq3ebsf3" path="res://art/bait_low/feint_low3.png" id="30_cahjm"]
+[ext_resource type="Texture2D" uid="uid://djak6idxp3aqk" path="res://art/block_mid/block_mid0.png" id="31_egc3k"]
+[ext_resource type="Texture2D" uid="uid://b2iyuyfg74fh" path="res://art/block_mid/block_mid1.png" id="32_22njm"]
+[ext_resource type="Texture2D" uid="uid://de88r3y3yh40" path="res://art/block_mid/block_mid2.png" id="33_6idof"]
+[ext_resource type="Texture2D" uid="uid://gl30od4ljk0t" path="res://art/block_low/block_low0.png" id="34_alqjm"]
+[ext_resource type="Texture2D" uid="uid://f26yrayffy3f" path="res://art/block_low/block_low1.png" id="35_4q7qa"]
+[ext_resource type="Texture2D" uid="uid://bukd5a5tdwqy" path="res://art/block_low/block_low2.png" id="36_rjvw1"]
+[ext_resource type="Script" path="res://scripts/HowToPlayUI.gd" id="37_33hqe"]
+[ext_resource type="Texture2D" uid="uid://c7a86h5ku2efi" path="res://art/img/UI/xbox_sketch_v1.png" id="37_no51r"]
+[ext_resource type="Texture2D" uid="uid://6idk0ly8x015" path="res://art/img/UI/controllerBtn.png" id="38_26sh1"]
+[ext_resource type="PackedScene" uid="uid://dni0silygqy74" path="res://scenes/inputSettings/inputSettings.tscn" id="39_sla1b"]
+[ext_resource type="Script" path="res://scenes/openMemapMenuBtn.gd" id="40_41lkt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3e4ln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4mw3d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ph4rm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ble1w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5vvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ho770")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uo42b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j4wbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_blob1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4egof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1da1k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxusq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bji33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bb737")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2uljx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wmxl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ovs31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oxbjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_fksdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_g8cnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_c5cnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_07aip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_txl46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r3pm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_s64ee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_fg3tf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_t86gb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dhk7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_bgqla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_wm8km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_07aip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_txl46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r3pm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_s64ee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1mir8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_8jtid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_c6ssk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_cahjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_07aip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_txl46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r3pm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_s64ee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iibhb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bji33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bb737")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2uljx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_07aip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_txl46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r3pm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_s64ee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_egc3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_22njm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_6idof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_07aip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_txl46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r3pm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_s64ee")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_alqjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_4q7qa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_rjvw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_07aip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_txl46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_r3pm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_s64ee")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v4kcg"]
+orientation = 2
+
+[node name="howToPlayMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+rotation = -0.00197369
+
+[node name="images" type="Node2D" parent="."]
+z_index = -2
+position = Vector2(-2.385, -51)
+
+[node name="background" type="AnimatedSprite2D" parent="images"]
+position = Vector2(585.385, 379)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_3e4ln")
+
+[node name="swordsClashing" type="AnimatedSprite2D" parent="images"]
+position = Vector2(584.385, 209)
+scale = Vector2(0.18, 0.18)
+sprite_frames = SubResource("SpriteFrames_ph4rm")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+offset_left = 362.0
+offset_top = -8.0
+offset_right = 798.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_42tg8")
+theme_override_font_sizes/font_size = 64
+text = "How to Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Page1" type="Node2D" parent="."]
+visible = false
+
+[node name="howToPlay" type="Node2D" parent="Page1"]
+position = Vector2(0, 258)
+
+[node name="attackExample" type="AnimatedSprite2D" parent="Page1/howToPlay"]
+texture_filter = 1
+position = Vector2(180, 270)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_n5vvf")
+autoplay = "default"
+frame_progress = 0.816271
+speed_scale = 0.8
+flip_h = true
+
+[node name="blockExample" type="AnimatedSprite2D" parent="Page1/howToPlay"]
+texture_filter = 1
+position = Vector2(339, 270)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_gxusq")
+autoplay = "default"
+frame_progress = 0.356443
+speed_scale = 0.8
+
+[node name="baitExample1" type="AnimatedSprite2D" parent="Page1/howToPlay"]
+texture_filter = 1
+position = Vector2(840, 270)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2wmxl")
+autoplay = "default"
+frame_progress = 0.924381
+speed_scale = 0.9
+flip_h = true
+
+[node name="baitExample2" type="AnimatedSprite2D" parent="Page1/howToPlay"]
+texture_filter = 1
+position = Vector2(1000, 270)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_iibhb")
+autoplay = "default"
+frame_progress = 0.117418
+speed_scale = 0.8
+
+[node name="textWithBG" type="Node2D" parent="Page1/howToPlay"]
+
+[node name="rule" type="RichTextLabel" parent="Page1/howToPlay/textWithBG"]
+auto_translate_mode = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 1151.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 0
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Swords Dance is a game about two ninjas fighting with swords.
+It is based on the rules of fencing where each touch of an opponent will give you a point. 
+Attack, baits and blocks are the backbone of your strategy as a swordfighter.
+Make good use of your position and pressure your opponent to find an opportunity to score a hit![/center]"
+selection_enabled = true
+language = "en"
+
+[node name="BGtext" type="MeshInstance2D" parent="Page1/howToPlay/textWithBG"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+position = Vector2(580, 50)
+scale = Vector2(578, 60)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="textWithBG2" type="Node2D" parent="Page1/howToPlay"]
+position = Vector2(429.153, 171.848)
+
+[node name="actionLabel" type="RichTextLabel" parent="Page1/howToPlay/textWithBG2"]
+auto_translate_mode = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.4814
+offset_top = -14.1445
+offset_right = 79.5186
+offset_bottom = 14.8555
+grow_horizontal = 2
+grow_vertical = 0
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Block[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="BGtext" type="MeshInstance2D" parent="Page1/howToPlay/textWithBG2"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+scale = Vector2(88.5, 26.5)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="textWithBG3" type="Node2D" parent="Page1/howToPlay"]
+position = Vector2(102.157, 169.202)
+
+[node name="actionLabel" type="RichTextLabel" parent="Page1/howToPlay/textWithBG3"]
+auto_translate_mode = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.9742
+offset_top = -13.148
+offset_right = 78.0258
+offset_bottom = 15.852
+grow_horizontal = 2
+grow_vertical = 0
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Attack[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="BGtext" type="MeshInstance2D" parent="Page1/howToPlay/textWithBG3"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+scale = Vector2(88.5, 26.5)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="textWithBG4" type="Node2D" parent="Page1/howToPlay"]
+position = Vector2(802.148, 174.584)
+
+[node name="actionLabel" type="RichTextLabel" parent="Page1/howToPlay/textWithBG4"]
+auto_translate_mode = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.9762
+offset_top = -12.15
+offset_right = 77.0238
+offset_bottom = 16.85
+grow_horizontal = 2
+grow_vertical = 0
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Bait your opponent[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="BGtext" type="MeshInstance2D" parent="Page1/howToPlay/textWithBG4"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+scale = Vector2(88.5, 26.5)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="Page2" type="Node2D" parent="."]
+visible = false
+
+[node name="controller" type="Node2D" parent="Page2"]
+scale = Vector2(1.2, 1.2)
+
+[node name="BGController" type="MeshInstance2D" parent="Page2/controller"]
+modulate = Color(0.741176, 0.741176, 0.741176, 0.709804)
+self_modulate = Color(0.2, 0.509804, 0.34902, 1)
+show_behind_parent = true
+position = Vector2(248.082, 378.123)
+scale = Vector2(241.342, 160.105)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="XboxSketchV1" type="Sprite2D" parent="Page2/controller"]
+position = Vector2(251.297, 365.156)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("37_no51r")
+
+[node name="mainText" type="Node2D" parent="Page2"]
+position = Vector2(0, 230)
+
+[node name="rule" type="RichTextLabel" parent="Page2/mainText"]
+auto_translate_mode = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 0.00789475
+offset_top = -4.0
+offset_right = 1151.01
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 0
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Every main action is a combination of a stance button and an action button at the same time[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/mainText"]
+modulate = Color(0, 0, 0, 0.886275)
+show_behind_parent = true
+position = Vector2(580, 6.81252)
+scale = Vector2(578, 20.8125)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="array" type="Node2D" parent="Page2"]
+position = Vector2(0, -15)
+
+[node name="titles" type="Node2D" parent="Page2/array"]
+position = Vector2(300, 290)
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/array/titles"]
+modulate = Color(0, 0, 0, 0.760784)
+show_behind_parent = true
+position = Vector2(573.767, 182.548)
+scale = Vector2(283.186, 196.548)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="dirTitle" type="RichTextLabel" parent="Page2/array/titles"]
+auto_translate_mode = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 577.479
+offset_top = -10.2676
+offset_right = 847.479
+offset_bottom = 24.7324
+grow_horizontal = 2
+grow_vertical = 0
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Action's direction[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="stancesTitle" type="RichTextLabel" parent="Page2/array/titles"]
+auto_translate_mode = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 290.48
+offset_top = -10.8341
+offset_right = 560.48
+offset_bottom = 24.1659
+grow_horizontal = 2
+grow_vertical = 0
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Stances[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="separator" type="MeshInstance2D" parent="Page2/array"]
+modulate = Color(0.741176, 0.741176, 0.741176, 1)
+self_modulate = Color(0, 0, 0, 1)
+show_behind_parent = true
+position = Vector2(862.787, 430.622)
+scale = Vector2(2.82548, 154.804)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="stances" type="Node2D" parent="Page2/array"]
+
+[node name="attackStance" type="Node2D" parent="Page2/array/stances"]
+position = Vector2(821.32, 375)
+
+[node name="textWithBG" type="Node2D" parent="Page2/array/stances/attackStance"]
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/array/stances/attackStance/textWithBG"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+position = Vector2(-98.6377, -7.70828)
+scale = Vector2(130.448, 37.2466)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="RB" type="Sprite2D" parent="Page2/array/stances/attackStance/textWithBG"]
+position = Vector2(-180.983, -8.35742)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("38_26sh1")
+region_enabled = true
+region_rect = Rect2(1315.19, 1300, 573.422, 220.255)
+
+[node name="rule" type="RichTextLabel" parent="Page2/array/stances/attackStance/textWithBG"]
+auto_translate_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.962
+offset_top = -19.3947
+offset_right = 50.0378
+offset_bottom = 30.6053
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Attack Stance[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="counterStance" type="Node2D" parent="Page2/array/stances"]
+position = Vector2(821.32, 457)
+
+[node name="textWithBG" type="Node2D" parent="Page2/array/stances/counterStance"]
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/array/stances/counterStance/textWithBG"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+position = Vector2(-98.6377, -7.70828)
+scale = Vector2(130.448, 37.2466)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="RT" type="Sprite2D" parent="Page2/array/stances/counterStance/textWithBG"]
+position = Vector2(-180.983, -8.35742)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("38_26sh1")
+region_enabled = true
+region_rect = Rect2(1577.22, 559.49, 353.168, 448.105)
+
+[node name="rule" type="RichTextLabel" parent="Page2/array/stances/counterStance/textWithBG"]
+auto_translate_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.962
+offset_top = -19.3947
+offset_right = 50.0378
+offset_bottom = 30.6053
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Counter Stance[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="baitStance" type="Node2D" parent="Page2/array/stances"]
+position = Vector2(821.32, 537)
+
+[node name="textWithBG" type="Node2D" parent="Page2/array/stances/baitStance"]
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/array/stances/baitStance/textWithBG"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+position = Vector2(-98.6377, -7.70828)
+scale = Vector2(130.448, 37.2466)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="LB" type="Sprite2D" parent="Page2/array/stances/baitStance/textWithBG"]
+position = Vector2(-180.983, -8.35742)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("38_26sh1")
+region_enabled = true
+region_rect = Rect2(1003.8, 1015.19, 558.232, 288.61)
+
+[node name="rule" type="RichTextLabel" parent="Page2/array/stances/baitStance/textWithBG"]
+auto_translate_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.962
+offset_top = -19.3947
+offset_right = 50.0378
+offset_bottom = 30.6053
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Baiting Stance[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="directions" type="Node2D" parent="Page2/array"]
+position = Vector2(280, 0)
+
+[node name="upDir" type="Node2D" parent="Page2/array/directions"]
+position = Vector2(821.32, 375)
+
+[node name="textWithBG" type="Node2D" parent="Page2/array/directions/upDir"]
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/array/directions/upDir/textWithBG"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+position = Vector2(-98.6377, -7.70828)
+scale = Vector2(130.448, 37.2466)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="Y" type="Sprite2D" parent="Page2/array/directions/upDir/textWithBG"]
+position = Vector2(-180.983, -8.35742)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("38_26sh1")
+region_enabled = true
+region_rect = Rect2(73.0173, 25.7544, 444.794, 444.794)
+
+[node name="rule" type="RichTextLabel" parent="Page2/array/directions/upDir/textWithBG"]
+auto_translate_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.962
+offset_top = -19.3947
+offset_right = 50.0378
+offset_bottom = 30.6053
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]High Action[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="midDir" type="Node2D" parent="Page2/array/directions"]
+position = Vector2(821.32, 457)
+
+[node name="textWithBG" type="Node2D" parent="Page2/array/directions/midDir"]
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/array/directions/midDir/textWithBG"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+position = Vector2(-98.6377, -7.70828)
+scale = Vector2(130.448, 37.2466)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="X" type="Sprite2D" parent="Page2/array/directions/midDir/textWithBG"]
+position = Vector2(-180.983, -8.35742)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("38_26sh1")
+region_enabled = true
+region_rect = Rect2(538.527, 27.0136, 461.473, 444.794)
+
+[node name="rule" type="RichTextLabel" parent="Page2/array/directions/midDir/textWithBG"]
+auto_translate_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.962
+offset_top = -19.3947
+offset_right = 50.0378
+offset_bottom = 30.6053
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Middle Action[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="lowDir" type="Node2D" parent="Page2/array/directions"]
+position = Vector2(821.32, 537)
+
+[node name="textWithBG" type="Node2D" parent="Page2/array/directions/lowDir"]
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/array/directions/lowDir/textWithBG"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+position = Vector2(-98.6377, -7.70828)
+scale = Vector2(130.448, 37.2466)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="A" type="Sprite2D" parent="Page2/array/directions/lowDir/textWithBG"]
+position = Vector2(-180.983, -8.35742)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("38_26sh1")
+region_enabled = true
+region_rect = Rect2(1022.24, 27.0136, 450.857, 455.913)
+
+[node name="rule" type="RichTextLabel" parent="Page2/array/directions/lowDir/textWithBG"]
+auto_translate_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.962
+offset_top = -19.3947
+offset_right = 50.0378
+offset_bottom = 30.6053
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Low Action[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="movement" type="Node2D" parent="Page2/array"]
+
+[node name="movArrows" type="Node2D" parent="Page2/array/movement"]
+
+[node name="textWithBG" type="Node2D" parent="Page2/array/movement/movArrows"]
+
+[node name="BGtext" type="MeshInstance2D" parent="Page2/array/movement/movArrows/textWithBG"]
+modulate = Color(0, 0, 0, 0.490196)
+show_behind_parent = true
+position = Vector2(846.011, 629.174)
+scale = Vector2(210.323, 37.2466)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="dPad" type="Sprite2D" parent="Page2/array/movement/movArrows/textWithBG"]
+position = Vector2(706.936, 628.414)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("38_26sh1")
+region_enabled = true
+region_rect = Rect2(956.385, 1545.76, 864.315, 454.903)
+
+[node name="rule" type="RichTextLabel" parent="Page2/array/movement/movArrows/textWithBG"]
+auto_translate_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 743.957
+offset_top = 617.487
+offset_right = 993.957
+offset_bottom = 667.487
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Move your character[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="Page3" type="Node2D" parent="."]
+
+[node name="mainText" type="Node2D" parent="Page3"]
+position = Vector2(2.98023e-08, 230)
+scale = Vector2(1, 1)
+
+[node name="rule" type="RichTextLabel" parent="Page3/mainText"]
+auto_translate_mode = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 0.00789475
+offset_top = -4.0
+offset_right = 1151.01
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 0
+localize_numeral_system = false
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "[center]Every main action is a combination of a stance button and an action button at the same time[/center]"
+selection_enabled = true
+language = "en"
+metadata/_edit_use_anchors_ = true
+
+[node name="BGtext" type="MeshInstance2D" parent="Page3/mainText"]
+modulate = Color(0, 0, 0, 0.886275)
+show_behind_parent = true
+position = Vector2(580, 6.81252)
+scale = Vector2(578, 20.8125)
+mesh = SubResource("PlaneMesh_v4kcg")
+
+[node name="keyboard" type="Node2D" parent="Page3"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Page3"]
+
+[node name="InputSettings" parent="Page3/CanvasLayer" instance=ExtResource("39_sla1b")]
+
+[node name="openRemapMenuBtn" type="Button" parent="Page3"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 0.652629
+offset_top = 176.002
+offset_right = 216.653
+offset_bottom = 207.002
+grow_vertical = 2
+text = "Change inputs for keyboard"
+script = ExtResource("40_41lkt")
+
+[node name="HowToPlayBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 826.799
+offset_top = 102.632
+offset_right = 1009.8
+offset_bottom = 133.632
+text = "How to play"
+script = ExtResource("37_33hqe")
+pageNodeName = "Page1"
+
+[node name="ControllerBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 722.718
+offset_top = 143.427
+offset_right = 903.718
+offset_bottom = 174.427
+text = "Controls for Controller"
+script = ExtResource("37_33hqe")
+pageNodeName = "Page2"
+
+[node name="KeyboardBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 930.718
+offset_top = 143.837
+offset_right = 1111.72
+offset_bottom = 174.837
+text = "Controls for Keyboard"
+script = ExtResource("37_33hqe")
+pageNodeName = "Page3"
+
+[connection signal="pressed" from="Page3/openRemapMenuBtn" to="Page3/CanvasLayer/InputSettings" method="_on_open_remap_menu_btn_pressed"]
+[connection signal="pressed" from="Page3/openRemapMenuBtn" to="Page3/openRemapMenuBtn" method="_on_pressed"]
+[connection signal="pressed" from="Page3/openRemapMenuBtn" to="HowToPlayBtn" method="_on_controller_btn_pressed"]
+[connection signal="pressed" from="HowToPlayBtn" to="HowToPlayBtn" method="_on_pressed"]
+[connection signal="pressed" from="ControllerBtn" to="HowToPlayBtn" method="_on_controller_btn_pressed"]
+[connection signal="pressed" from="ControllerBtn" to="ControllerBtn" method="_on_pressed"]
+[connection signal="pressed" from="KeyboardBtn" to="KeyboardBtn" method="_on_pressed"]

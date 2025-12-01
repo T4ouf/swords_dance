@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dni0silygqy74"]
+
+[ext_resource type="PackedScene" uid="uid://cud6ijdu0poui" path="res://scenes/inputSettings/inputBtn.tscn" id="1_07c5s"]
+[ext_resource type="Script" path="res://scenes/inputSettings/inputSettings.gd" id="1_8ubjm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4dfg"]
+bg_color = Color(0, 0, 0, 0.615686)
+
+[node name="InputSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ubjm")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -490.0
+offset_top = -280.0
+offset_right = 490.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c4dfg")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputBtn" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_07c5s")]
+layout_mode = 2
+
+[node name="InputBtn2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_07c5s")]
+layout_mode = 2
+
+[node name="InputBtn3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_07c5s")]
+layout_mode = 2
+
+[node name="resetBtn" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Reset to Default"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/resetBtn" to="." method="_on_reset_btn_pressed"]

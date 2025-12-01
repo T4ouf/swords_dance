@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ektmo40qhhby"]
 
-[ext_resource type="PackedScene" uid="uid://b3g3sinqmbk1t" path="res://models/cars/mazda.glb" id="1_bpqsp"]
-[ext_resource type="AudioStream" uid="uid://b8h2ak1dauc41" path="res://audio/car.mp3" id="2_omjlg"]
+[ext_resource type="PackedScene" path="res://models/cars/mazda.glb" id="1_bpqsp"]
+[ext_resource type="AudioStream" path="res://audio/car.mp3" id="2_omjlg"]
 
 [node name="mazda" instance=ExtResource("1_bpqsp")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)

@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://77oawa5u2101"]
-
-[ext_resource type="PackedScene" uid="uid://drcos6w751rkl" path="res://models/car.glb" id="1_qc6yf"]
-
-[node name="car" instance=ExtResource("1_qc6yf")]

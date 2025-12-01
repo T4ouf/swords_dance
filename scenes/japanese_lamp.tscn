@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://hkabi0jqioxr"]
 
-[ext_resource type="PackedScene" uid="uid://byh4a6hp5kmj7" path="res://models/japanese_paper_lantern.glb" id="1_oy872"]
-[ext_resource type="Texture2D" uid="uid://dfly6mxjbi40q" path="res://textures/rope/fabrics_0066_color_1k.jpg" id="2_lreed"]
-[ext_resource type="Texture2D" uid="uid://j87ah0fd5roo" path="res://textures/rope/fabrics_0066_ao_1k.jpg" id="3_vmy7k"]
-[ext_resource type="Texture2D" uid="uid://c6gfjk13kch62" path="res://textures/rope/fabrics_0066_normal_opengl_1k.png" id="4_017fk"]
-[ext_resource type="Texture2D" uid="uid://bjimuaw7kxmcg" path="res://textures/rope/fabrics_0066_roughness_1k.jpg" id="5_l2cep"]
+[ext_resource type="PackedScene" uid="uid://bloeymd35rtt7" path="res://models/japanese_paper_lantern.glb" id="1_oy872"]
+[ext_resource type="Texture2D" uid="uid://b4uhvxro240fu" path="res://textures/rope/fabrics_0066_color_1k.jpg" id="2_lreed"]
+[ext_resource type="Texture2D" uid="uid://c6kusc5bt1nfi" path="res://textures/rope/fabrics_0066_ao_1k.jpg" id="3_vmy7k"]
+[ext_resource type="Texture2D" uid="uid://kw0cm726xpdq" path="res://textures/rope/fabrics_0066_normal_opengl_1k.png" id="4_017fk"]
+[ext_resource type="Texture2D" uid="uid://c84kukg1ill1k" path="res://textures/rope/fabrics_0066_roughness_1k.jpg" id="5_l2cep"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_m4o3n"]
 top_radius = 0.1
@@ -25,7 +25,7 @@ ao_texture = ExtResource("3_vmy7k")
 transform = Transform3D(-1, 8.74228e-08, 3.48787e-16, -8.74228e-08, -1, -3.48787e-16, 3.48787e-16, -3.48787e-16, 1, 0, 0, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_model/JapaneseLamp_obj_cleaner_materialmerger_gles" index="1"]
-light_color = Color(0.752941, 0.752941, 0, 1)
+light_color = Color(0.541176, 0.239216, 0.0823529, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66153, 0)
